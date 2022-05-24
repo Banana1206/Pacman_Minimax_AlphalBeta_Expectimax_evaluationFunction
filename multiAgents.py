@@ -538,7 +538,7 @@ def myEvaluationFunction(currentGameState):
         else:
             if manhattanDistance(ghost.getPosition(), newPos) <= 2:
                 return -10000
-            ghost_dis = -1*(manhattanDistance(ghost.getPosition(), newPos))
+            ghost_dis = -2/(manhattanDistance(ghost.getPosition(), newPos))
 
     # Get distance of closest capsule
     if len(newCapsules)>0:
@@ -549,7 +549,7 @@ def myEvaluationFunction(currentGameState):
     # Get distance of closest food
     foodList = newFood.asList()
     if foodList:
-        closestFood = -2/min([manhattanDistance(newPos, food) for food in foodList])
+        closestFood = min([manhattanDistance(newPos, food) for food in foodList])
     else:
         closestFood = 0
 
